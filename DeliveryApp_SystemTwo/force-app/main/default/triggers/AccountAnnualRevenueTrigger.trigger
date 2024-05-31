@@ -16,6 +16,9 @@ trigger AccountAnnualRevenueTrigger on Account (before insert, before update) {
             if (acc.Industry == 'Banking'){
                 acc.AnnualRevenue = 5000000;
             }
+            if (acc.Industry == 'Insurance'){
+                acc.AnnualRevenue = 3500000;
+            }
         }
     }
     
