@@ -1,0 +1,21 @@
+<aura:component implements="flexipage:availableForAllPageTypes" access="global" controller="DisplayPropertyList"> 
+    <aura:attribute name="PropertyList" type="Property__c[]"></aura:attribute>
+    <aura:attribute name="propertiesFound" type="boolean" default="false"></aura:attribute>
+
+    <aura:handler name="init" value="{!this}" action="{!c.fetchAllProperty}"></aura:handler>
+    
+    
+        <lightning:layout horizontal-align="center" pull-to-boundary="small" vertical-align="start">
+            <lightning:layoutItem padding="around-small" size="6">
+                <lightning:layout multipleRows="true">
+                    <aura:iteration items="{!v.propertyList}" var="prop">
+                    <div class="slds-box" style="width:100%;background-color:white;">
+                    </div>
+                        <lightning:LayoutItem size="8" padding="around-small">
+                            <lightning:card title="{!prop.Rent__c}"></lightning:card>
+                    </lightning:LayoutItem>
+                    </aura:iteration>
+                </lightning:layout>
+            </lightning:layoutItem>
+        </lightning:layout>
+</aura:component>

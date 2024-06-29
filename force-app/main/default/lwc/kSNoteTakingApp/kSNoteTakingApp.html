@@ -1,0 +1,247 @@
+<template>
+    <div class="sigin-in-one show">
+        <div class="sign-in-block">
+            <h1> Sign in </h1>
+            <span>to continue to your account</span>
+        </div>
+        
+        <div class="action-button">
+            <p>
+                Username or Email: <lightning-input name="UsernameOrEmail" placeholder="Enter your email or username" title="User Input" class="usernameEmail-input" required ></lightning-input>
+            </p>
+            <p>
+                Password: <lightning-input name="Password" placeholder="Enter your password" title="User Input" class="password-input" required></lightning-input>
+            </p>
+            <br/>
+            <lightning-button variant="brand" label="Click here to enter Login" title="Click here to enter Login" aria-haspopup="dialog" onclick={handleLogin} class="slds-m-left_x-small password-nav-button"></lightning-button>
+        </div>
+    </div>
+
+    <!-- <div class="sigin-in-two" style="display:none;">
+        <div class="sign-in-block-two">
+            <h1> Log in </h1>
+            <span>to continue to your account</span>
+        </div>
+        
+        <div class="action-button">
+            <lightning-input name="PasswordNote" placeholder="Enter your password" title="User Input" class="passwordNote" required></lightning-input><br/>
+            <lightning-button variant="brand" label="Login" title="Click here to Login" onclick={handleLogin} class="slds-m-left_x-small login-nav-button"></lightning-button>
+        </div>
+    </div> -->
+        <!-- <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse">
+            <svg class="slds-button__icon slds-button__icon_large" aria-hidden="true">
+            <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#close"></use>
+            </svg>
+            <span class="slds-assistive-text">Cancel and close</span>
+        </button>
+        <div class="slds-modal__header">
+            <h1 id="modal-heading-01" class="slds-modal__title slds-hyphenate" tabindex="-1">Modal header</h1>
+            <p class="slds-m-top_x-small">Here’s a tagline if you need it. It is allowed to extend across mulitple lines, so I’m making up content to show that to you. It is allowed to
+            <a href="#">contain links or be a link</a>.</p>
+        </div>
+        <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+            <p>Sit nulla est ex deserunt exercitation anim occaecat. Nostrud ullamco deserunt aute id consequat veniam incididunt duis in sint irure nisi. Mollit officia cillum Lorem ullamco minim nostrud elit officia tempor esse quis. Cillum sunt ad dolore quis
+            aute consequat ipsum magna exercitation reprehenderit magna. Tempor cupidatat consequat elit dolor adipisicing.</p>
+            <p>Dolor eiusmod sunt ex incididunt cillum quis nostrud velit duis sit officia. Lorem aliqua enim laboris do dolor eiusmod officia. Mollit incididunt nisi consectetur esse laborum eiusmod pariatur proident. Eiusmod et adipisicing culpa deserunt nostrud
+            ad veniam nulla aute est. Labore esse esse cupidatat amet velit id elit consequat minim ullamco mollit enim excepteur ea.</p>
+        </div>
+        <div class="slds-modal__footer">
+            <button class="slds-button slds-button_neutral" aria-label="Cancel and close">Cancel</button>
+            <button class="slds-button slds-button_brand">Save</button>
+        </div>
+        </div>
+    </section>
+    <div class="slds-backdrop slds-backdrop_open" role="presentation"></div>
+    </template> -->
+
+    <!-- <template if:true={isShowModal}>
+        <section role="dialog" tabindex="-1" aria-modal="true" aria-labelledby="modal-heading-01" class="slds-modal slds-fade-in-open">
+        <div slot="title" class="slds-modal__container">
+            KS Note taking App
+        </div>
+        <div slot="actions" class="slds-modal__header">
+        <lightning-modal-header label="Menu">
+            <ul>
+                <li>Home</li>
+                <li>Notes</li>
+                <li>Tasks</li>
+                <li>Files</li>
+                <li>Events</li>
+            </ul>
+        </lightning-modal-header>
+        </div>
+        <div slot="body">
+        <lightning-modal-body class="slds-modal__content">
+            <p>Add New Note</p>
+        </lightning-modal-body>
+        </div>
+        <div slot="footer">
+        <lightning-modal-footer class="slds-modal__footer">
+            <ul>
+                <li>Logout</li>
+                <li>Help</li>
+            </ul>
+        </lightning-modal-footer>
+        </div>
+        <div class="slds-backdrop slds-backdrop_open">
+            
+        </div>
+        </section>
+    </template> -->
+
+
+    <template if:true={isShowModal}>
+    <section role="dialog" tabindex="-1" aria-modal="true" aria-labelledby="modal-heading-01" class="slds-modal slds-fade-in-open">
+        <div class="slds-modal__container">
+        <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse">
+            <svg class="slds-button__icon slds-button__icon_large" aria-hidden="true">
+            <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#close"></use>
+            </svg>
+            <span class="slds-assistive-text">Cancel and close</span>
+        </button>
+        <div class="slds-modal__header">
+            <h1 id="modal-heading-01" class="slds-modal__title slds-hyphenate" tabindex="-1">KS Note taking app</h1>
+            <a href="#">contain links or be a link</a>.</p>
+            <lightning-modal-header label="Menu">
+                <div class="header-right">
+                    <lightning-button variant="base" label="Home" title="Looks like a link"  class="slds-m-left_x-small"></lightning-button>&nbsp;&nbsp;
+                    <lightning-button variant="base" label="Notes" title="Looks like a Notes link" onclick={showNotes} class="slds-m-left_x-small"></lightning-button>&nbsp;&nbsp;
+                    <lightning-button variant="base" label="Tasks" title="Looks like a Tasks link" onclick={showTasks} class="slds-m-left_x-small"></lightning-button>&nbsp;&nbsp;
+                    <!-- <lightning-button variant="neutral" label="Files" aria-current="page">Files</lightning-button>&nbsp;&nbsp;
+                    <lightning-button variant="neutral" label="Events">Events</lightning-button>&nbsp;&nbsp;
+                    <lightning-button variant="neutral" label="Shortcuts">Shortcuts</lightning-button>&nbsp;&nbsp;
+                    <lightning-button variant="neutral" label="About Us">About us</lightning-button>&nbsp;&nbsp;
+                    <lightning-button variant="neutral" label="Contact Us">Contact Us</lightning-button>&nbsp;&nbsp; -->
+                </div>
+            </lightning-modal-header>
+        </div>
+        <div class="slds-modal__content" id="modal-content-id-1">
+            <!-- <p>Sit nulla est ex deserunt exercitation anim occaecat. Nostrud ullamco deserunt aute id consequat veniam incididunt duis in sint irure nisi. Mollit officia cillum Lorem ullamco minim nostrud elit officia tempor esse quis. Cillum sunt ad dolore quis
+            aute consequat ipsum magna exercitation reprehenderit magna. Tempor cupidatat consequat elit dolor adipisicing.</p>
+            <p>Dolor eiusmod sunt ex incididunt cillum quis nostrud velit duis sit officia. Lorem aliqua enim laboris do dolor eiusmod officia. Mollit incididunt nisi consectetur esse laborum eiusmod pariatur proident. Eiusmod et adipisicing culpa deserunt nostrud
+            ad veniam nulla aute est. Labore esse esse cupidatat amet velit id elit consequat minim ullamco mollit enim excepteur ea.</p> -->
+                <template if:true={isShowNoteModal}>
+                <lightning-modal-body class="slds-modal__content notes-modal-display">
+                    <!-- <template if:true={isShowNoteModal}> -->
+                    <div>
+                        <div>
+                            <lightning-icon icon-name='utility:add' alternative-text='add' size='small' title='add' onclick={addNewNote}>
+                            </lightning-icon>
+                            <h2>Add new note</h2>
+                        </div>
+                    </div>
+
+                     <template for:each={allNotes} for:item="note">
+                        <h1 key={note.Id}>
+                            Title: {note.Unlocked_2G__Title__c}
+                        </h1>
+                        <p key={note.id}>
+                            Descritption: {note.Unlocked_2G__Description__c}
+                        </p>
+                        &nbsp;
+                    </template>
+                <!-- </template> -->
+                </lightning-modal-body>
+                </template>
+
+            <template if:true={isShowTaskModal}>
+                <lightning-modal-body class="slds-modal__content task-modal-display">
+                    <div>
+                        <div>
+                            <lightning-icon icon-name='utility:add' alternative-text='add' size='small' title='add' onclick={addNewTask}>
+                            </lightning-icon>
+                            <h2>Add new task</h2>
+                        </div>
+                    </div>
+
+                    <template for:each={allTasks} for:item="task">
+                        <h1 key={task.Id}>
+                            Title: {task.Unlocked_2G__Title__c}
+                        </h1>
+                        <p key={task.Id}>
+                            Description: {task.Unlocked_2G__Description__c}
+                        </p>
+                        <p key={task.Id}>
+                            Due date: {task.Unlocked_2G__Due_Date__c}
+                        </p>
+                        <p key={task.Id}>
+                            Priority: {task.Unlocked_2G__Priority__c}
+                        </p>
+                        &nbsp;
+                    </template>
+                </lightning-modal-body>
+            </template>
+
+        </div>
+        <div class="slds-modal__footer">
+            <button class="slds-button slds-button_neutral" aria-label="Cancel and close" onclick={cancelButton}>Cancel</button>
+        </div>
+        </div>
+    </section>
+
+
+    <template if:true={isShowNoteInput}>
+        <section role="dialog" tabindex="-1" aria-modal="true" aria-labelledby="modal-heading-02" class="slds-modal slds-fade-in-open">
+            <div class="slds-modal__container">
+            <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse">
+                <svg class="slds-button__icon slds-button__icon_large" aria-hidden="true">
+                <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#close"></use>
+                </svg>
+                <span class="slds-assistive-text">Cancel and close</span>
+            </button>
+            <div class="slds-modal__header">
+                <h1 id="modal-heading-02" class="slds-modal__title slds-hyphenate" tabindex="-1">Add New Note</h1>
+                <p>Enter note title: </p> 
+                <lightning-input name="note-title" onchange={saveNoteTitle}></lightning-input>
+                <br/>
+
+                <p>Enter note description: </p> 
+                <lightning-textarea name="note-description" label="Note Desc" onchange={saveNoteDesc}></lightning-textarea> 
+            </div>
+            <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-2">
+            </div>
+            <div class="slds-modal__footer">
+                <button class="slds-button slds-button_neutral" aria-label="Save and close" onclick={saveNoteButton}>Save</button>
+                <button class="slds-button slds-button_neutral" aria-label="Cancel and close" onclick={cancelNoteButton}>Cancel</button>
+            </div>
+            </div>
+        </section>
+    <div class="slds-backdrop slds-backdrop_open" role="presentation"></div>
+    </template>
+
+
+    <template if:true={isShowTaskInput}>
+        <section role="dialog" tabindex="-1" aria-modal="true" aria-labelledby="modal-heading-03" class="slds-modal slds-fade-in-open">
+            <div class="slds-modal__container">
+            <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse">
+                <svg class="slds-button__icon slds-button__icon_large" aria-hidden="true">
+                <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#close"></use>
+                </svg>
+                <span class="slds-assistive-text">Cancel and close</span>
+            </button>
+            <div class="slds-modal__header">
+                <h1 id="modal-heading-03" class="slds-modal__title slds-hyphenate" tabindex="-1">Add New Task</h1>
+                <p>Enter title: </p> 
+                <lightning-input name="task-title" onchange={saveTaskTitle}></lightning-input>
+                <br/>
+
+                <p>Enter description: </p> 
+                <lightning-textarea name="task-description" label="Note Desc" onchange={saveTaskDesc}></lightning-textarea>
+                
+                <p>Enter due date: </p> 
+                <lightning-input type="date" label="task-due-date" onchange={saveTaskDueDate}></lightning-input>
+
+                <p> Enter priority: </p>
+                <lightning-combobox name="task-priority" label="task-priority" options={priorityOptions} onchange={saveTaskPriority}></lightning-combobox>
+            </div>
+            <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-3">
+            </div>
+            <div class="slds-modal__footer">
+                <button class="slds-button slds-button_neutral" aria-label="Save and close" onclick={saveTaskButton}>Save</button>
+                <button class="slds-button slds-button_neutral" aria-label="Cancel and close" onclick={cancelTaskButton}>Cancel</button>
+            </div>
+            </div>
+        </section>
+    <div class="slds-backdrop slds-backdrop_open" role="presentation"></div>
+    </template>
+</template>
